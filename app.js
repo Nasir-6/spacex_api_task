@@ -10,8 +10,12 @@ const loadData = async () => {
 
 
 const renderData = async () => {
-    await loadData();
+    await loadData();   // Need await to ensure it doesn't move on until it loads data
     console.log(allLaunches);
+
+    console.log(allLaunches[0].flight_number)
+
+
 }
 
 renderData();
