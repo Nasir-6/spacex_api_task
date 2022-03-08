@@ -3,11 +3,15 @@ console.log("JS is working");
 let allLaunches = [];
 
 
+const loadData = async () => {
+  allLaunches = await fetch("https://api.spacexdata.com/v5/launches")
+    .then((result) => result.json())
+};
 
-fetch("https://api.spacexdata.com/v5/launches")
-.then(result => result.json())
-.then((data) => allLaunches = data)
-.then(() => console.log(allLaunches[0].flight_number));
 
+const renderData = async () => {
+    await loadData();
+    console.log(allLaunches);
+}
 
-// console.log(allLaunches);
+renderData();
