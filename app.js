@@ -32,11 +32,11 @@ const renderData = async () => {
     launch.appendChild(launchName)
 
     const launchNumber = document.createElement('h3');
-    launchNumber.innerText = allLaunches[0].flight_number
+    launchNumber.innerText = `Flight Number: ${allLaunches[0].flight_number}`
     launch.appendChild(launchNumber)
 
     const launchDate = document.createElement('h3');
-    launchDate.innerText = allLaunches[0].date_utc.split('T')[0]
+    launchDate.innerText = `Date: ${allLaunches[0].date_utc.split('T')[0]}`
     launch.appendChild(launchDate)
 
     const launchImg = document.createElement('img');
