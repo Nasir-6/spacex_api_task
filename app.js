@@ -3,12 +3,13 @@ console.log("JS is working");
 let allLaunches = [];
 
 const loadData = async () => {
-  allLaunches = await fetch("https://api.spacexdata.com/v5/launches").then(
-    (result) => result.json()
-  );
+  allLaunches = await fetch("https://api.spacexdata.com/v5/launches").then((result) => result.json());
 };
 
-// ====== This is code for building and rendering one example!! =======
+
+
+// ====== This is code for building and rendering one example launch 0!!! =======
+
 // const renderData = async () => {
 //     await loadData();   // Need await to ensure it doesn't move on until it loads data
 //     console.log(allLaunches);
@@ -16,7 +17,8 @@ const loadData = async () => {
 //     console.log(allLaunches[0].name)
 //     console.log(allLaunches[0].flight_number)
 //     console.log(allLaunches[0].date_utc)
-//     console.log(allLaunches[0].date_utc.split('T')[0])
+    // Use split to grab date and exclude Time
+//    console.log(allLaunches[0].date_utc.split('T')[0])
 //     console.log(allLaunches[0].links.patch.small)
 //     console.log(allLaunches[0].details)
 //     console.log(allLaunches[0].links.article)
@@ -60,6 +62,9 @@ const loadData = async () => {
 
 // }
 
+
+
+// This is same as above but using for loop to render all the launches
 const renderData = async () => {
   await loadData(); // Need await to ensure it doesn't move on until it loads data
   console.log(allLaunches);
@@ -67,6 +72,7 @@ const renderData = async () => {
   console.log(allLaunches[0].name);
   console.log(allLaunches[0].flight_number);
   console.log(allLaunches[0].date_utc);
+  // Use split to grab date and exclude Time
   console.log(allLaunches[0].date_utc.split("T")[0]);
   console.log(allLaunches[0].links.patch.small);
   console.log(allLaunches[0].details);
@@ -75,6 +81,7 @@ const renderData = async () => {
   // Let's try create and append to all-launch-container
   allLaunchContainer = document.querySelector("#all-launch-container");
 
+  // loop through all launches and render each launch 
   for (const oneLaunch of allLaunches) {
     const launch = document.createElement("section");
     launch.classList.add("launch");
